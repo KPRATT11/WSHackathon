@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
-import Timer from './components/Timer';
 import ProgressBar from "@ramonak/react-progress-bar";
+import Kitchen from './components/Rooms.js/Kitchen';
 
 function App() {
 
@@ -81,8 +81,8 @@ function App() {
       <p>season: {season ? 'Summer' : 'Winter'}</p> 
       <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
-      <Timer time={timeLeft}/>
-      <ProgressBar completed={waterLevel/100}/>
+      <ProgressBar completed={waterLevel/10}/>
+      <Kitchen initTime={10}></Kitchen>
     </div>
   );
 }
