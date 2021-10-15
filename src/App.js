@@ -10,14 +10,17 @@ function App() {
   const maxWaterLevel = 1000 //Will most likely need to change this in the future doesnt need to be state tho
 
   const [room, setRoom] = useState(0)
-  const [waterLevel, setWaterLevel] = useState(100) //init to default water level
-  const [timeLeft, setTimeLeft] = useState(100) //set to miliseconds passed can format it use the Date class
-  const [rainAmount, setRainAmount] = useState(0)
+  
+  const [waterLevel, setWaterLevel] = useState(100) //init to defualt water level
+  const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
+  const [rainAmount, setRainAmount] = useState(20)
+
   const [rainCycles, setRainCycles] = useState(0) //amount of times it has rained
   const [season, setSeason] = useState(true) //True for summer false for winter
 
   //Function is run whenever we want rain to occur
   const createRain = () => {
+    console.log(waterLevel)
     setWaterLevel(Math.min(waterLevel + rainAmount, maxWaterLevel))
     setRainCycles(rainCycles + 1)
   }
@@ -28,11 +31,21 @@ function App() {
 
     if (season){
       if (randNumber < 2){
+        console.log("Its Raining")
         createRain()
+        return
+      }else{
+        console.log('no rain')
+        return
       }
     } else {
       if (randNumber < 8){
+        console.log("Its Raining")
         createRain()
+        return
+      }else{
+        console.log('no Rain')
+        return
       }
     }
   }
@@ -48,20 +61,25 @@ function App() {
     return(<div></div>)
   }
 
-  const incTimeDown = () => {
-    setTimeLeft(timeLeft - 1)
-  }
+  /* --- Main Game Timers --- */
 
+  //main timer runs every 30 seconds
   useEffect(() => {
-    const mainTimer = setInterval(() => {
-       incTimeDown()
-    }, 1000)
-  }, [])
+    setTimeout(() => {
+      randomRain()
+      if (((1000 * 3) * 5) % timePassed === 0){
+        setSeason(!season)
+      }
+  
+      setTimePassed(timePassed + 1000 * 3)
+    }, 1000 * 3)
+  }, [timePassed])
 
   return (
     <div className="App">
       {displayRoom()}
-      {waterLevel}
+      <p>season: {season ? 'Summer' : 'Winter'}</p> 
+      <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
       <Timer time={timeLeft}/>
       <ProgressBar completed={waterLevel/100}/>
