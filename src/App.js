@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
+import Timer from './components/Timer';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
       if (randNumber < 2){
         createRain()
       }
-    }else{
+    } else {
       if (randNumber < 8){
         createRain()
       }
@@ -51,6 +52,7 @@ function App() {
       {displayRoom()}
       {waterLevel}
       <ButtonWrapper />
+      <Timer time="10"/>
     </div>
   );
 }
