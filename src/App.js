@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
@@ -10,7 +10,7 @@ function App() {
   const [room, setRoom] = useState(0)
   const [waterLevel, setWaterLevel] = useState(100) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
-  const [rainAmount, setRainAmount] = useState(0)
+  const [rainAmount, setRainAmount] = useState(20)
   const [rainCycles, setRainCycles] = useState(0) //amount of times it has rained
   const [season, setSeason] = useState(true) //True for summer false for winter
 
@@ -26,11 +26,21 @@ function App() {
 
     if (season){
       if (randNumber < 2){
+        console.log("Its Raining")
         createRain()
+        return
+      }else{
+        console.log('no rain')
+        return
       }
     }else{
       if (randNumber < 8){
+        console.log("Its Raining")
         createRain()
+        return
+      }else{
+        console.log('no Rain')
+        return
       }
     }
   }
@@ -46,10 +56,25 @@ function App() {
     return(<div></div>)
   }
 
+  /* --- Main Game Timers --- */
+
+  //main timer runs every 30 seconds
+  useEffect(() => {
+    setInterval(() => {
+      randomRain()
+      if (timePassed === (100 * 3) * 5){
+        setSeason(!season)
+      }
+  
+      setTimePassed(timePassed + 1000 * 3)
+    }, 1000 * 3)
+  }, [])
+
   return (
     <div className="App">
       {displayRoom()}
-      {waterLevel}
+      <p>season: {season ? 'Summer' : 'Winter'}</p> 
+      <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
     </div>
   );
