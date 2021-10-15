@@ -16,7 +16,7 @@ const ButtonWrapper = () => {
             <button className="showHide">Show/Hide</button>
             {showing &&             
                 <div className="roomButtons">
-                    <Button icon="../svgs/waterDrop.svg" alt="water droplet"/>
+                    <Button icon="./src/svgs/waterDrop.svg" alt="water droplet"/>
                 </div>
             }
         </div>
