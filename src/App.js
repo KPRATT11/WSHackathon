@@ -3,15 +3,18 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
 import Timer from './components/Timer';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 function App() {
 
   const maxWaterLevel = 1000 //Will most likely need to change this in the future doesnt need to be state tho
 
   const [room, setRoom] = useState(0)
+  
   const [waterLevel, setWaterLevel] = useState(100) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
   const [rainAmount, setRainAmount] = useState(20)
+
   const [rainCycles, setRainCycles] = useState(0) //amount of times it has rained
   const [season, setSeason] = useState(true) //True for summer false for winter
 
@@ -78,7 +81,8 @@ function App() {
       <p>season: {season ? 'Summer' : 'Winter'}</p> 
       <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
-      <Timer time="10"/>
+      <Timer time={timeLeft}/>
+      <ProgressBar completed={waterLevel/100}/>
     </div>
   );
 }
