@@ -16,6 +16,7 @@ function App() {
 
   //Function is run whenever we want rain to occur
   const createRain = () => {
+    console.log(waterLevel)
     setWaterLevel(Math.min(waterLevel + rainAmount, maxWaterLevel))
     setRainCycles(rainCycles + 1)
   }
@@ -60,15 +61,15 @@ function App() {
 
   //main timer runs every 30 seconds
   useEffect(() => {
-    setInterval(() => {
+    setTimeout(() => {
       randomRain()
-      if (timePassed === (100 * 3) * 5){
+      if (((1000 * 3) * 5) % timePassed === 0){
         setSeason(!season)
       }
   
       setTimePassed(timePassed + 1000 * 3)
     }, 1000 * 3)
-  }, [])
+  }, [timePassed])
 
   return (
     <div className="App">
