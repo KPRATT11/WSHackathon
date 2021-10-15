@@ -4,6 +4,7 @@ import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
 import Timer from './components/Timer';
 import ProgressBar from "@ramonak/react-progress-bar";
+import AlertRaining from "./components/AlertRaining";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   const [waterLevel, setWaterLevel] = useState(100) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
   const [rainAmount, setRainAmount] = useState(20)
-
+  const [isRaining, setIsRaining] = useState(false) //mostly for graphical purposes
   const [rainCycles, setRainCycles] = useState(0) //amount of times it has rained
   const [season, setSeason] = useState(true) //True for summer false for winter
 
@@ -23,6 +24,10 @@ function App() {
     console.log(waterLevel)
     setWaterLevel(Math.min(waterLevel + rainAmount, maxWaterLevel))
     setRainCycles(rainCycles + 1)
+    setIsRaining(true)
+    setTimeout(() => {
+      setIsRaining(false)
+    }, 1000 * 25)
   }
 
   //Randomly generates rain probably called every minute or something
@@ -67,21 +72,21 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       randomRain()
-      if (((1000 * 3) * 5) % timePassed === 0){
+      if (((1000 * 30) * 5) % timePassed === 0){
         setSeason(!season)
       }
   
-      setTimePassed(timePassed + 1000 * 3)
-    }, 1000 * 3)
+      setTimePassed(timePassed + 1000 * 30)
+    }, 1000 * 30)
   }, [timePassed])
 
   return (
     <div className="App">
       {displayRoom()}
+      {isRaining && <AlertRaining />}
       <p>season: {season ? 'Summer' : 'Winter'}</p> 
       <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
-      <Timer time={timeLeft}/>
       <ProgressBar completed={waterLevel/100}/>
     </div>
   );
