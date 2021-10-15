@@ -11,9 +11,8 @@ const ButtonWrapper = () => {
     return ( 
         <div 
             className="ButtonWrapper"
-            onClick={toggleShow}
             >
-            <button className="showHide">Show/Hide</button>
+            <button className="showHide" onClick={toggleShow}>Show/Hide</button>
             {showing &&             
                 <div className="roomButtons">
                     <Button icon="./src/svgs/waterDrop.svg" alt="water droplet"/>
