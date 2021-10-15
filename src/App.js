@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
+import Timer from './components/Timer';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
         console.log('no rain')
         return
       }
-    }else{
+    } else {
       if (randNumber < 8){
         console.log("Its Raining")
         createRain()
@@ -77,6 +78,7 @@ function App() {
       <p>season: {season ? 'Summer' : 'Winter'}</p> 
       <p>water Level: {waterLevel}</p> 
       <ButtonWrapper />
+      <Timer time="10"/>
     </div>
   );
 }
