@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
 import Timer from './components/Timer';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
       {waterLevel}
       <ButtonWrapper />
       <Timer time="10"/>
+      <ProgressBar completed={waterLevel/100}/>
     </div>
   );
 }
