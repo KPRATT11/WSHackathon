@@ -63,7 +63,11 @@ function App() {
 
   const displayRoom = () => {
     //probs just have a switch here that returns the room component
-    return(<div></div>)
+    return(
+      <div>
+        
+      </div>
+    )
   }
 
   /* --- Main Game Timers --- */
