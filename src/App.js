@@ -34,26 +34,28 @@ function App() {
     fun: 100,
   })
 
-  // const updateUserThirst = amount => {
-  //   setUserStats({
-  //     ...userStats, thirst: (thirst + amount)
-  //   })
-  // }
-  // const updateUserHygene = amount => {
-  //   setUserStats({
-  //     ...userStats, hygiene: (hygiene + amount)
-  //   })
-  // }
-  // const updateUserHunger = amount => {
-  //   setUserStats({
-  //     ...userStats, hunger: (hunger + amount)
-  //   })
-  // }
-  // const updateUserFun = amount => {
-  //   setUserStats({
-  //     ...userStats, fun: (fun + amount)
-  //   })
-  // }
+
+  const updateUserThirst = amount => {
+    setUserStats({
+      ...userStats, thirst: (userStats.thirst + amount)
+    })
+  }
+  const updateUserHygene = amount => {
+    setUserStats({
+      ...userStats, hygiene: (userStats.hygiene + amount)
+    })
+  }
+  const updateUserHunger = amount => {
+    setUserStats({
+      ...userStats, hunger: (userStats.hunger + amount)
+    })
+  }
+  const updateUserFun = amount => {
+    setUserStats({
+      ...userStats, fun: (userStats.fun + amount)
+    })
+  }
+
 
   //Function is run whenever we want rain to occur
   const createRain = () => {
