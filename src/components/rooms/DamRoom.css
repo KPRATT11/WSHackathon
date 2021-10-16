@@ -2,3 +2,13 @@
     background-color: rgb(27, 141, 16);
     height: 100vh;
 }
+
+.imgs {
+    position: relative;
+}
+
+
+.background {
+    transition: 1s;
+    clip-path: inset(2rem 0 12rem 0);
+}

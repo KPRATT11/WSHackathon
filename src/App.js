@@ -108,6 +108,8 @@ function App() {
     switch (room) {
       case "Kitchen":
         return <Kitchen initTime={10}></Kitchen>
+      case "Dam": 
+        return <DamRoom waterLevel={waterLevel}></DamRoom>
       default: 
         return <Start roomFunc={diffRoom} />
     }

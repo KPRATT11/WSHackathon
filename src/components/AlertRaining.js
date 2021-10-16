@@ -1,9 +1,11 @@
 // import React, { useState, useEffect } from 'react';
+import waterdrop from '../svgs/rainy.png'
+import './alertRaining.css';
 
 const AlertRaining = () => {
     return ( 
-        <div>
-            <h1>the sky is crying</h1>
+        <div className="raining">
+            <img className="imgIcon" src={waterdrop} alt="" />
         </div>
      );
 }
