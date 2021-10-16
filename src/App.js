@@ -4,6 +4,7 @@ import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
 import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
+import PlayerBars from "./components/PlayerBars"
 
 import DamRoom from './components/rooms/DamRoom';
 import Kitchen from './components/rooms/Kitchen';
@@ -21,6 +22,15 @@ function App() {
   const [isRaining, setIsRaining] = useState(false) //mostly for graphical purposes
   const [rainCycles, setRainCycles] = useState(0) //amount of times it has rained
   const [season, setSeason] = useState(true) //True for summer false for winter
+
+
+  //probably best to have these decrease over time using a timer
+  const [userStats, setUserStats] = useState({
+    thirst: 100,
+    hygiene: 100,
+    hunger: 100,
+    fun: 100,
+  })
 
   //Function is run whenever we want rain to occur
   const createRain = () => {
@@ -70,6 +80,8 @@ function App() {
     switch (room) {
       case "Kitchen":
         return <Kitchen initTime={10}></Kitchen>
+      default: 
+        return
     }
   }
 
@@ -102,7 +114,7 @@ function App() {
       {displayRoom()}
 
       <div className="bottomBar">
-        
+        <PlayerBars stats={userStats}/>        
       </div>
     </div>
   );

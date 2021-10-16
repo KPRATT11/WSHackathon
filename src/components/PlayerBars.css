@@ -1,0 +1,15 @@
+.progressContainer{
+    text-align: center;
+    justify-content: center;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.bar{
+    display: block;
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+}
