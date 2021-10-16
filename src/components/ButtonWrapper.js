@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RoomButton from './Button'
+import Button from './Button'
 import waterdrop from '../svgs/waterDrop.svg'
 
 const ButtonWrapper = (props) => {
@@ -17,11 +17,18 @@ const ButtonWrapper = (props) => {
             <button className="showHide" onClick={toggleShow}>Show/Hide</button>
             {showing &&             
                 <div className="roomButtons">
-                    <RoomButton 
-                        icon={waterdrop} 
+                    <Button 
+                        icon={''} 
                         alt="water droplet" 
                         func={props.roomFunc}
                         room="Kitchen"
+                        />
+
+                    <Button 
+                        icon={waterdrop} 
+                        alt="water droplet" 
+                        func={props.roomFunc}
+                        room="Dam"
                         />
                 </div>
             }

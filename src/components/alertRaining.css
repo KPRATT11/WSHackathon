@@ -1,0 +1,16 @@
+.raining{
+    position: absolute;
+    background-color: rgb(70, 70, 136);
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    box-shadow: 5px 5px 15px 5px rgba(70, 70, 70, 0.12);
+}
+
+.imgIcon{
+    width: 30px;
+    padding-top: 5px;
+}

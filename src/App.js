@@ -81,6 +81,8 @@ function App() {
     switch (room) {
       case "Kitchen":
         return <Kitchen initTime={10}></Kitchen>
+      case "Dam": 
+        return <DamRoom waterLevel={waterLevel}></DamRoom>
       default: 
         return
     }
@@ -107,7 +109,7 @@ function App() {
   return (
     <div className="App">
       <div className="topBar">
-        {isRaining && <AlertRaining />}
+        <AlertRaining />
         <p>season: {season ? 'Summer' : 'Winter'}</p> 
         <ButtonWrapper roomFunc={diffRoom}/>
       </div>
