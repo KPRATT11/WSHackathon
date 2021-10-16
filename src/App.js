@@ -36,22 +36,22 @@ function App() {
 
   const updateUserThirst = amount => {
     setUserStats({
-      ...userStats, thirst: (thirst + amount)
+      ...userStats, thirst: (userStats.thirst + amount)
     })
   }
   const updateUserHygene = amount => {
     setUserStats({
-      ...userStats, hygiene: (hygiene + amount)
+      ...userStats, hygiene: (userStats.hygiene + amount)
     })
   }
   const updateUserHunger = amount => {
     setUserStats({
-      ...userStats, hunger: (hunger + amount)
+      ...userStats, hunger: (userStats.hunger + amount)
     })
   }
   const updateUserFun = amount => {
     setUserStats({
-      ...userStats, fun: (fun + amount)
+      ...userStats, fun: (userStats.fun + amount)
     })
   }
 
