@@ -25,16 +25,20 @@ export default function Kitchen(props) {
     let message
     let duck
     
-    if (waterRunning && timeLeft) {
-        message = 'Stop the Tap!!!'
-        duck = upDuck
-    } else if (waterRunning && !timeLeft) {
-        message = 'You ran out of time!'
-        duck = angryDuck
-    } else {
-        message = 'Good Work! You saved Water!'
-        duck = normDuck
-    }
+    useEffect(() => {
+        if (waterRunning && timeLeft) {
+            message = 'Stop the Tap!!!'
+            duck = upDuck
+        } else if (waterRunning && !timeLeft) {
+            message = 'You ran out of time!'
+            duck = angryDuck
+            props.thirstFunc(-29)
+        } else {
+            message = 'Good Work! You saved Water!'
+            duck = normDuck
+            props.thirstFunc(10)
+        }
+    }, [waterRunning, timeLeft])
 
     return (
         <div 

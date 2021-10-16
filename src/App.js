@@ -37,22 +37,22 @@ function App() {
 
   const updateUserThirst = amount => {
     setUserStats({
-      ...userStats, thirst: (userStats.thirst + amount)
+      ...userStats, thirst: (Math.min(userStats.thirst + amount, 100))
     })
   }
   const updateUserHygene = amount => {
     setUserStats({
-      ...userStats, hygiene: (userStats.hygiene + amount)
+      ...userStats, hygiene: (Math.min(userStats.hygiene + amount, 100))
     })
   }
   const updateUserHunger = amount => {
     setUserStats({
-      ...userStats, hunger: (userStats.hunger + amount)
+      ...userStats, hunger: (Math.min(userStats.hunger + amount, 100))
     })
   }
   const updateUserFun = amount => {
     setUserStats({
-      ...userStats, fun: (userStats.fun + amount)
+      ...userStats, fun: (Math.min(userStats.fun + amount, 100))
     })
   }
 
@@ -98,18 +98,16 @@ function App() {
   const useWater = (amount) => {
     setWaterLevel(Math.max(waterLevel - amount), 0)
   }
-
   
   const diffRoom = roomName => {
     setRoom(roomName)
   }
   
   const displayRoom = () => {
-    //probs just have a switch here that returns the room component
 
     switch (room) {
       case "Kitchen":
-        return <Kitchen initTime={10}></Kitchen>
+        return <Kitchen initTime={10} thirstFunc={updateUserThirst}></Kitchen>
       case "Dam": 
         return <DamRoom waterLevel={waterLevel}></DamRoom>
       default: 
