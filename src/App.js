@@ -16,7 +16,7 @@ function App() {
 
   const maxWaterLevel = 1000 //Will most likely need to change this in the future doesnt need to be state tho
 
-  const [room, setRoom] = useState('')
+  const [room, setRoom] = useState('Start')
   
   const [waterLevel, setWaterLevel] = useState(300) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
@@ -33,6 +33,7 @@ function App() {
     hunger: 100,
     fun: 100,
   })
+
 
   const updateUserThirst = amount => {
     setUserStats({
@@ -54,6 +55,7 @@ function App() {
       ...userStats, fun: (userStats.fun + amount)
     })
   }
+
 
   //Function is run whenever we want rain to occur
   const createRain = () => {
@@ -130,14 +132,18 @@ function App() {
 
   return (
     <div className="App">
-      <div className="topBar">
-        {isRaining && <AlertRaining />}
-        <p className="season">season: {season ? 'Summer' : 'Winter'}</p> 
-        <ButtonWrapper roomFunc={diffRoom}/>
-      </div>
-      <div className="bottomBar">
-        <PlayerBars stats={userStats}/>        
-      </div>
+      {room !== "Start" &&       
+      <div>
+        <div className="topBar">
+          {isRaining && <AlertRaining />}
+          <p className="season">season: {season ? 'Summer' : 'Winter'}</p> 
+          <ButtonWrapper roomFunc={diffRoom}/>
+        </div>
+        <div className="bottomBar">
+          <PlayerBars stats={userStats}/>        
+        </div>
+      </div>}
+
       {displayRoom()}
     </div>
   );
