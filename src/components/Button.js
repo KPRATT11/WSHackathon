@@ -1,7 +1,13 @@
 import './Button.css'
 
-export default function Button(props) {
+export default function RoomButton(props) {
     return (
-        <a href="/" className="myButton"><img src={props.icon} alt={props.alt} /></a>
+        <button 
+            className="myButton"
+            onClick={() => {
+                props.func(props.room)
+            }}>
+            <img src={props.icon} alt={props.alt} />
+        </button>
     )
 }

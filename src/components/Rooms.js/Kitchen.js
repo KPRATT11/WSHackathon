@@ -13,6 +13,7 @@ export default function Kitchen(props) {
 
     return (
         <div className="kitchen">
+            <p>hello</p>
             <Timer time={timeLeft}/>
         </div>
     )

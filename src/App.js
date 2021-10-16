@@ -13,7 +13,7 @@ function App() {
 
   const maxWaterLevel = 1000 //Will most likely need to change this in the future doesnt need to be state tho
 
-  const [room, setRoom] = useState(0)
+  const [room, setRoom] = useState('')
   
   const [waterLevel, setWaterLevel] = useState(300) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
@@ -42,7 +42,7 @@ function App() {
         console.log("Its Raining")
         createRain()
         return
-      }else{
+      } else {
         console.log('no rain')
         return
       }
@@ -51,7 +51,7 @@ function App() {
         console.log("Its Raining")
         createRain()
         return
-      }else{
+      } else {
         console.log('no Rain')
         return
       }
@@ -66,13 +66,15 @@ function App() {
 
   const displayRoom = () => {
     //probs just have a switch here that returns the room component
-    return(
-      <div>
-        <DamRoom 
-        waterLevel={waterLevel}
-        />
-      </div>
-    )
+
+    switch (room) {
+      case "Kitchen":
+        return <Kitchen initTime={10}></Kitchen>
+    }
+  }
+
+  const diffRoom = roomName => {
+    setRoom(roomName)
   }
 
   /* --- Main Game Timers --- */
@@ -95,9 +97,10 @@ function App() {
         {isRaining && <AlertRaining />}
         <p>season: {season ? 'Summer' : 'Winter'}</p> 
         <ButtonWrapper />
-        </div>
+      </div>
 
       {displayRoom()}
+
       <div className="bottomBar">
         
       </div>
