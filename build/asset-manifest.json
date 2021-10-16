@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f31d8bd1.chunk.css",
+    "main.js": "/static/js/main.172e3576.chunk.js",
+    "main.js.map": "/static/js/main.172e3576.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.de575bed.js",
+    "runtime-main.js.map": "/static/js/runtime-main.de575bed.js.map",
+    "static/js/2.762f8d96.chunk.js": "/static/js/2.762f8d96.chunk.js",
+    "static/js/2.762f8d96.chunk.js.map": "/static/js/2.762f8d96.chunk.js.map",
+    "static/js/3.2e739637.chunk.js": "/static/js/3.2e739637.chunk.js",
+    "static/js/3.2e739637.chunk.js.map": "/static/js/3.2e739637.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.f31d8bd1.chunk.css.map": "/static/css/main.f31d8bd1.chunk.css.map",
+    "static/js/2.762f8d96.chunk.js.LICENSE.txt": "/static/js/2.762f8d96.chunk.js.LICENSE.txt",
+    "static/media/ScreenDead.d6dd31b8.png": "/static/media/ScreenDead.d6dd31b8.png",
+    "static/media/ScreenDrying.6dba846e.png": "/static/media/ScreenDrying.6dba846e.png",
+    "static/media/ScreenGreen.5cdfddbe.png": "/static/media/ScreenGreen.5cdfddbe.png",
+    "static/media/kitchenHazard.3710f821.jpg": "/static/media/kitchenHazard.3710f821.jpg",
+    "static/media/kitchenPlain.80977fb6.jpg": "/static/media/kitchenPlain.80977fb6.jpg",
+    "static/media/rainy.c6c525a4.png": "/static/media/rainy.c6c525a4.png",
+    "static/media/waterDrop.22a52dce.svg": "/static/media/waterDrop.22a52dce.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de575bed.js",
+    "static/js/2.762f8d96.chunk.js",
+    "static/css/main.f31d8bd1.chunk.css",
+    "static/js/main.172e3576.chunk.js"
+  ]
+}
