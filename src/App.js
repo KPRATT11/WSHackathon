@@ -34,6 +34,27 @@ function App() {
     fun: 100,
   })
 
+  const updateUserThirst = amount => {
+    setUserStats({
+      ...userStats, thirst: (thirst + amount)
+    })
+  }
+  const updateUserHygene = amount => {
+    setUserStats({
+      ...userStats, hygiene: (hygiene + amount)
+    })
+  }
+  const updateUserHunger = amount => {
+    setUserStats({
+      ...userStats, hunger: (hunger + amount)
+    })
+  }
+  const updateUserFun = amount => {
+    setUserStats({
+      ...userStats, fun: (fun + amount)
+    })
+  }
+
   //Function is run whenever we want rain to occur
   const createRain = () => {
     // console.log(waterLevel)
