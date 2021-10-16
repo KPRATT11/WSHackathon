@@ -96,7 +96,7 @@ function App() {
       <div className="topBar">
         {isRaining && <AlertRaining />}
         <p>season: {season ? 'Summer' : 'Winter'}</p> 
-        <ButtonWrapper />
+        <ButtonWrapper roomFunc={diffRoom}/>
       </div>
 
       {displayRoom()}
