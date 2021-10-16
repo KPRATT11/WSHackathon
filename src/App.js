@@ -6,7 +6,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
 
 import DamRoom from './components/rooms/DamRoom';
-import Kitchen from './components/Rooms.js/Kitchen';
+import Kitchen from './components/rooms/Kitchen';
 
 
 function App() {
@@ -96,7 +96,7 @@ function App() {
       <div className="topBar">
         {isRaining && <AlertRaining />}
         <p>season: {season ? 'Summer' : 'Winter'}</p> 
-        <ButtonWrapper />
+        <ButtonWrapper roomFunc={diffRoom}/>
       </div>
 
       {displayRoom()}
