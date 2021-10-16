@@ -4,6 +4,9 @@ import Timer from '../Timer';
 import kitchenPlain from '../../svgs/kitchenPlain.jpg'
 import water from '../../svgs/sinkoverflow.png'
 import kitchenHazard from '../../svgs/kitchenHazard.jpg'
+import normDuck from '../../svgs/ArmsDownDuck.png'
+import upDuck from '../../svgs/ArmsUpDuck.png'
+import angryDuck from '../../svgs/AngryDuck.png'
 
 export default function Kitchen(props) {
 
@@ -20,15 +23,19 @@ export default function Kitchen(props) {
     let kitchenType = waterRunning ? kitchenHazard : kitchenPlain
 
     let message
+    let duck
+    
     if (waterRunning && timeLeft) {
         message = 'Stop the Tap!!!'
+        duck = upDuck
     } else if (waterRunning && !timeLeft) {
         message = 'You ran out of time!'
+        duck = angryDuck
     } else {
-        console.log(timeLeft, waterRunning)
         message = 'Good Work! You saved Water!'
+        duck = normDuck
     }
-    
+
     return (
         <div 
             className="kitchen"
@@ -46,6 +53,11 @@ export default function Kitchen(props) {
                     className="water" 
                     hidden={!waterRunning}
                     onClick={() => setWaterRunning(false)}
+                    />
+                <img 
+                    className="duck"
+                    src={duck} 
+                    alt="" 
                     />
             </div>
             <Timer time={timeLeft}/>
