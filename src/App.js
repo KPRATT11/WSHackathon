@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
-import Timer from './components/Timer';
 import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
+
 import DamRoom from './components/rooms/DamRoom';
+import Kitchen from './components/Rooms.js/Kitchen';
+
 
 function App() {
 
@@ -93,7 +95,8 @@ function App() {
         {isRaining && <AlertRaining />}
         <p>season: {season ? 'Summer' : 'Winter'}</p> 
         <ButtonWrapper />
-      </div>
+        </div>
+
       {displayRoom()}
       <div className="bottomBar">
         
