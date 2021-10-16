@@ -1,6 +1,5 @@
 .mainRoom{
     background-color: rgb(27, 141, 16);
-    height: 100vh;
 }
 
 .imgs {
@@ -9,6 +8,8 @@
 
 
 .background {
-    transition: 1s;
+    position: relative;
+    width: 720px;
     clip-path: inset(2rem 0 12rem 0);
+    top: -32px;
 }
