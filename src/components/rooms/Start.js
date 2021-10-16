@@ -8,10 +8,11 @@ export default function Start(props) {
     return (
         <div className="startScreen" 
         onClick={() => {props.roomFunc('Dam')}}>
-            <img 
+            <img className="duck"
                 src={normDuck} 
                 alt="" />
-            <h1>Tap to Start</h1>
+            <h1 className="titleScreenText scale-in-center">Live Ducky Live</h1>
+            <h1 className="startScreenText heartbeat">Tap to Start</h1>
         </div>
     )
 }
