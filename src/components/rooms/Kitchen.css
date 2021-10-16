@@ -1,0 +1,22 @@
+.imgs {
+    position: relative;
+}
+
+.background {
+    transition: 1s;
+    clip-path: inset(2rem 0 12rem 0);
+}
+
+.water {
+    position: absolute;
+    top: 38.3%;
+    left: 41.5%;
+    transition: all 1s linear;
+}
+
+.kitchen .timer {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}

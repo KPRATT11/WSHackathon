@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import './App.css';
+import './reset.css'
 import ButtonWrapper from './components/ButtonWrapper';
 import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
