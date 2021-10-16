@@ -20,3 +20,9 @@
     left: 50%;
     transform: translateX(-50%);
 }
+
+.kitchen .duck {
+    position: absolute;
+    top: 50%;
+    right: 40%
+}

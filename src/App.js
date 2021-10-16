@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import './App.css';
 import './reset.css'
+
 import ButtonWrapper from './components/ButtonWrapper';
-import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
 import PlayerBars from "./components/PlayerBars"
+import Start from './components/rooms/Start'
 
 import DamRoom from './components/rooms/DamRoom';
 import Kitchen from './components/rooms/Kitchen';
@@ -33,9 +34,30 @@ function App() {
     fun: 100,
   })
 
+  const updateUserThirst = amount => {
+    setUserStats({
+      ...userStats, thirst: (thirst + amount)
+    })
+  }
+  const updateUserHygene = amount => {
+    setUserStats({
+      ...userStats, hygiene: (hygiene + amount)
+    })
+  }
+  const updateUserHunger = amount => {
+    setUserStats({
+      ...userStats, hunger: (hunger + amount)
+    })
+  }
+  const updateUserFun = amount => {
+    setUserStats({
+      ...userStats, fun: (fun + amount)
+    })
+  }
+
   //Function is run whenever we want rain to occur
   const createRain = () => {
-    console.log(waterLevel)
+    // console.log(waterLevel)
     setWaterLevel(Math.min(waterLevel + rainAmount, maxWaterLevel))
     setRainCycles(rainCycles + 1)
     setIsRaining(true)
@@ -75,6 +97,11 @@ function App() {
     setWaterLevel(Math.max(waterLevel - amount), 0)
   }
 
+  
+  const diffRoom = roomName => {
+    setRoom(roomName)
+  }
+  
   const displayRoom = () => {
     //probs just have a switch here that returns the room component
 
@@ -84,14 +111,9 @@ function App() {
       case "Dam": 
         return <DamRoom waterLevel={waterLevel}></DamRoom>
       default: 
-        return
+        return <Start roomFunc={diffRoom} />
     }
   }
-
-  const diffRoom = roomName => {
-    setRoom(roomName)
-  }
-
   /* --- Main Game Timers --- */
 
   //main timer runs every 30 seconds
@@ -109,16 +131,14 @@ function App() {
   return (
     <div className="App">
       <div className="topBar">
-        <AlertRaining />
-        <p>season: {season ? 'Summer' : 'Winter'}</p> 
+        {isRaining && <AlertRaining />}
+        <p className="season">season: {season ? 'Summer' : 'Winter'}</p> 
         <ButtonWrapper roomFunc={diffRoom}/>
       </div>
-
-      {displayRoom()}
-
       <div className="bottomBar">
         <PlayerBars stats={userStats}/>        
       </div>
+      {displayRoom()}
     </div>
   );
 }
