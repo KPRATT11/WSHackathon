@@ -6,16 +6,12 @@ import arrow from '../../svgs/arrowRight.png'
 
 export default function Start(props) {
     return (
-        <div className="startScreen">
+        <div className="startScreen" 
+        onClick={() => {props.roomFunc('Dam')}}>
             <img 
                 src={normDuck} 
                 alt="" />
-            <RoomButton 
-                icon={arrow} 
-                alt="water droplet" 
-                func={props.func}
-                room="Kitchen"
-                />
+            <h1>Tap to Start</h1>
         </div>
     )
 }
