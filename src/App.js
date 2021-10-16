@@ -4,7 +4,10 @@ import './App.css';
 import ButtonWrapper from './components/ButtonWrapper';
 import ProgressBar from "@ramonak/react-progress-bar";
 import AlertRaining from "./components/AlertRaining";
+
+import DamRoom from './components/rooms/DamRoom';
 import Kitchen from './components/Rooms.js/Kitchen';
+
 
 function App() {
 
@@ -12,7 +15,7 @@ function App() {
 
   const [room, setRoom] = useState(0)
   
-  const [waterLevel, setWaterLevel] = useState(100) //init to defualt water level
+  const [waterLevel, setWaterLevel] = useState(300) //init to defualt water level
   const [timePassed, setTimePassed] = useState(0) //set to miliseconds passed can format it use the Date class
   const [rainAmount, setRainAmount] = useState(20)
   const [isRaining, setIsRaining] = useState(false) //mostly for graphical purposes
@@ -65,7 +68,9 @@ function App() {
     //probs just have a switch here that returns the room component
     return(
       <div>
-        
+        <DamRoom 
+        waterLevel={waterLevel}
+        />
       </div>
     )
   }
@@ -86,13 +91,16 @@ function App() {
 
   return (
     <div className="App">
+      <div className="topBar">
+        {isRaining && <AlertRaining />}
+        <p>season: {season ? 'Summer' : 'Winter'}</p> 
+        <ButtonWrapper />
+        </div>
+
       {displayRoom()}
-      {isRaining && <AlertRaining />}
-      <p>season: {season ? 'Summer' : 'Winter'}</p> 
-      <p>water Level: {waterLevel}</p> 
-      <ButtonWrapper />
-      <ProgressBar completed={waterLevel/10}/>
-      <Kitchen initTime={10}></Kitchen>
+      <div className="bottomBar">
+        
+      </div>
     </div>
   );
 }
