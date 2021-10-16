@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Button from './Button'
+import './ButtonWrapper.css'
 import waterdrop from '../svgs/waterDrop.svg'
+import cookie from '../svgs/cookie.png'
 
 const ButtonWrapper = (props) => {
     const [showing, setShowing] = useState(true)
@@ -18,12 +20,11 @@ const ButtonWrapper = (props) => {
             {showing &&             
                 <div className="roomButtons">
                     <Button 
-                        icon={''} 
+                        icon={cookie} 
                         alt="water droplet" 
                         func={props.roomFunc}
                         room="Kitchen"
                         />
-
                     <Button 
                         icon={waterdrop} 
                         alt="water droplet" 

@@ -15,7 +15,7 @@ const DamRoom = (props) => {
         else if (props.waterLevel > 0 && props.waterLevel < 666){
             setBackground(damDying)
         }
-        else{
+        else {
             setBackground(damGreen)
         }
     }
@@ -24,14 +24,16 @@ const DamRoom = (props) => {
         selectBackground()
     }, [props])
 
+    let style = {margin: "0 1rem"}
+
     return ( 
-        <div className="mainRoom imgs">
+        <div className="mainRoom">
+            <ProgressBar completed={props.waterLevel/10} style={style}/>
             <img 
-                className="background"
+                className="main-img"
                 src={background} 
                 alt="" 
             />
-            <ProgressBar completed={props.waterLevel/10}/>
         </div>
      );
 }

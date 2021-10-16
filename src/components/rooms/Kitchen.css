@@ -9,9 +9,10 @@
 
 .water {
     position: absolute;
-    top: 38.3%;
-    left: 41.5%;
+    top: 38%;
+    left: 42.5%;
     transition: all 1s linear;
+    height: 7.5%;
 }
 
 .kitchen .timer {
