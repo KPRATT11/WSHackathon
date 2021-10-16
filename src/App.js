@@ -28,10 +28,10 @@ function App() {
 
   //probably best to have these decrease over time using a timer
   const [userStats, setUserStats] = useState({
-    thirst: 100,
-    hygiene: 100,
-    hunger: 100,
-    fun: 100,
+    thirst: 60,
+    hygiene: 50,
+    hunger: 55,
+    fun: 78,
   })
 
 
@@ -131,10 +131,10 @@ function App() {
   return (
     <div className="App">
       {room !== "Start" &&       
-      <div>
+      <div className="header">
         <div className="topBar">
           {isRaining && <AlertRaining />}
-          <p className="season">season: {season ? 'Summer' : 'Winter'}</p> 
+          <p className="season">Season: {season ? 'Summer' : 'Winter'}</p> 
           <ButtonWrapper roomFunc={diffRoom}/>
         </div>
         <div className="bottomBar">
